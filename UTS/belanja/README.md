@@ -9,9 +9,11 @@
 > Buatlah dua buah file dart dengan nama `home_page.dart` dan `item_page.dart` pada folder `pages`. Untuk masing-masing file, deklarasikan `class HomePage` pada file `home_page.dart` dan `ItemPage` pada `item_page.dart`. Turunkan class dari `StatelessWidget`. Gambaran potongan kode dapat anda lihat sebagai berikut.
 
 * home_page.dart
+  
 ![Alt text](image-2.png)
 
 * item_page.dart
+  
 ![Alt text](image-3.png)
 
 #### Langkah 3: Lengkapi Kode di main.dart
@@ -66,7 +68,7 @@
 
 6. Selesaikan Praktikum Navigasi dan Rute tersebut, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file `README.md.` Kumpulkan link commit repository GitHub Anda ke spreadsheet yang telah disediakan!
 
-##### JAWABAN SOAL NO 3 SAMPAI 5
+#### JAWABAN SOAL NO 3 SAMPAI 5
 
 **Menanbahkan Data Model url, stok, dan ratting pada halaman `models\item.dart`**
 
