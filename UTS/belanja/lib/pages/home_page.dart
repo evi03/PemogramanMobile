@@ -1,25 +1,36 @@
 import 'dart:html';
-
 import 'package:belanja/models/item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
     Item(
-      url: "https://media.monotaro.id/mid01/big/Perlengkapan%20Dapur%20%26%20Horeka/Makanan/Bahan%20Masak/Gulaku%20Gula%20Pasir%20Premium%20Putih/Gulaku%20Gula%20Pasir%20Premium%20Putih%201kg%201pc/22S028458074-1.jpg",
-      name: 'sugar', 
-      price: 5000,
-      stok: 100,
-      rating: 4),
+        pic: 'image/beras.png',
+        name: 'Beras 5kg',
+        review: 4.5,
+        stok: 20,
+        price: '56.000'),
     Item(
-      url: "https://storage.hpaindonesia.net:8215/assets/7fe30dbc3d444089bae615daf63fbf5a/IMG-20210318-WA0025.jpg",
-      name: 'Salt', 
-      price: 2000,
-      stok: 100,
-      rating: 5)
+        pic: 'image/garam.png',
+        name: 'Garam',
+        review: 4.2,
+        stok: 50,
+        price: '10.000'),
+    Item(
+        pic: 'image/gula.png',
+        name: 'Gulaku',
+        review: 5,
+        stok: 100,
+        price: '20.000'),
+    Item(
+        pic: 'image/minyak.png',
+        name: 'Minyak Bimoli',
+        review: 3.5,
+        stok: 30,
+        price: '25.000'),
   ];
 
-final routeName = '/item';
+  HomePage({super.key});
 
 // LANGKAH 6
   // @override
@@ -56,7 +67,7 @@ final routeName = '/item';
   //     ),
   //   );
 
-// LANGKAH 7
+// LANGKAH 7 & SOAL TUGAS 1
   // @override
   // Widget build(BuildContext context) {
   //   return Scaffold(
@@ -74,6 +85,7 @@ final routeName = '/item';
   //             child: InkWell(
   //               onTap: () {
   //                 Navigator.pushNamed(context, '/item');
+  //                 Navigator.pushNamed(context, '/item', arguments: item); // soal 1
   //               },
   //               child: Card(
   //               margin: const EdgeInsets.all(8),
@@ -97,79 +109,85 @@ final routeName = '/item';
   // );
 
 // TUGAS
-  // @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Navigasi Toko Flutter \nEvi Amalia Midfia - 2141720030',
+            'Navigasi Toko Flutter \nEvi Amalia Midfia - 2141720030'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[Colors.purple],
+            ),
+          ),
         ),
+        toolbarOpacity: 0.8, // Opacity toolbar menjadi 0.8
       ),
-      body: Container(
-        margin: const EdgeInsets.all(15),
-        child: ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return Material(
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, routeName, arguments: item);
-                  // Navigator.pushNamed(context, '/item', arguments: item); // soal 1
-                },
-                child: Card(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Image.network(
-                            item.url.toString(),
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        Expanded(
-                            child: Text(
-                          item.name.toString(),
-                          style: TextStyle(fontSize: 14),
-                        )),
-                        Expanded(
-                            child: Text(
-                          item.stok.toString(),
-                          textAlign: TextAlign.center,
-                        )),
-                        Expanded(
-                          child: Container(
-                              child: Row(
-                            children: [
-                              Icon(
-                                //membuat ikon bintang
-                                Icons.star,
-                                color: Color.fromARGB(255, 243, 121, 33),
-                              ),
-                              Text(item.rating.toString()),
-                            ],
-                          )),
-                        ),
-                        Expanded(
-                          child: Text(
-                            item.price.toString(),
-                            textAlign: TextAlign.end,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            );
-          },
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // Jumlah kolom dalam GridView
         ),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/item', arguments: item);
+            },
+            child: Hero(
+                tag: item.name, // Tag Hero harus unik untuk setiap item
+                child: Card(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Image.asset(
+                          item.pic.toString(),
+                          fit: BoxFit.cover, // Menyesuaikan gambar dengan baik
+                        ),
+                      ),
+                      Text(
+                        item.name,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold, // Teks menjadi bold
+                        ),
+                      ),
+                      Text(
+                        item.price,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold, // Teks menjadi bold
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Stok: ${item.stok.toString()}',
+                              textAlign: TextAlign.start,
+                            ),
+                            Row(
+                              children: [
+                                const Icon(Icons.star, color: Colors.red),
+                                Text(item.review.toString()),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+          );
+        },
       ),
     );
 
-  //   throw UnimplementedError();
-    
+    //   throw UnimplementedError();
   }
 }
