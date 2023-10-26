@@ -162,6 +162,8 @@ item_page.dart
 ```
 
 **Output**
-![image](https://github.com/evi03/PemogramanMobile/assets/95482289/5b5b9cdc-f5ad-48a6-9b95-bed641c459c0)
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/c712ad86-0190-4e2d-9827-54d89ec6d3b4)
+
 
 
