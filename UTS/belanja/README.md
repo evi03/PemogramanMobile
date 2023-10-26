@@ -139,7 +139,7 @@ item_page.dart
                         vertical: 15.0),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('Rp. ${item.price.toString()}',
+                        Text('Stok: ${item.stok.toString()}',
                         textAlign: TextAlign.start,
                         ),
                       Row(
@@ -162,5 +162,6 @@ item_page.dart
 ```
 
 **Output**
-![image](https://github.com/evi03/PemogramanMobile/assets/95482289/1703c747-2738-4f31-834a-28c71813ade5)
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/5b5b9cdc-f5ad-48a6-9b95-bed641c459c0)
+
 
