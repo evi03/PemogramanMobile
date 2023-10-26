@@ -72,11 +72,95 @@ item_page.dart
 
 **Menanbahkan Data Model url, stok, dan ratting pada halaman `models\item.dart`**
 
-![Alt text](image-20.png)
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/1171a07b-a24f-4c89-a0e7-d8e121e40621)
+
 
 **Menambahkan atribut url, stok, dan ratting pada halaman `home_page.dart`**
 
-![Alt text](image-21.png)
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/13eb8ead-2dfe-42af-ab12-a13a9bf987fb)
+
 
 **Membuat GridView dan implementasi Hero widget pada halaman `home_page.dart`**
+```
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Navigasi Toko Flutter \nEvi Amalia Midfia - 2141720030'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[Colors.purple],
+            ),
+          ),
+        ),
+        toolbarOpacity: 0.8, // Opacity toolbar menjadi 0.8
+      ),
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // Jumlah kolom dalam GridView
+        ),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/item', arguments: item);
+            },
+            child: Hero(
+              tag: item.name, // Tag Hero harus unik untuk setiap item
+              child: Card(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        item.pic.toString(),
+                        fit: BoxFit.cover, // Menyesuaikan gambar dengan baik
+                      ),
+                    ),
+                    Text(
+                      item.name,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold, // Teks menjadi bold
+                      ),
+                    ),
+                    Text(
+                      item.price,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold, // Teks menjadi bold
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15.0),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text('Rp. ${item.price.toString()}',
+                        textAlign: TextAlign.start,
+                        ),
+                      Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.red),
+                          Text(item.review.toString()),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ),
+      );
+    },
+  ),
+);
+```
+
+**Output**
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/1703c747-2738-4f31-834a-28c71813ade5)
 
