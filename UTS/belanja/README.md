@@ -74,9 +74,9 @@ item_page.dart
 
 ![Alt text](image-20.png)
 
-**Menambahkan ListView url, stok, dan ratting pada halaman `home_page.dart`**
+**Menambahkan atribut url, stok, dan ratting pada halaman `home_page.dart`**
 
 ![Alt text](image-21.png)
 
-**Membuat ListView dan itemBuilder pada halaman `home_page.dart`**
+**Membuat GridView dan implementasi Hero widget pada halaman `home_page.dart`**
 
