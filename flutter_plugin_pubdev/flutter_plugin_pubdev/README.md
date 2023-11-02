@@ -1,6 +1,5 @@
 # Manajemen Plugin
 
-<<<<<<< HEAD
 #### Langkah 1: Buat Project Baru
 ![Alt text](image.png)
 =======
@@ -113,4 +112,3 @@ overflowReplacement = Widget yang digunakan sebagai pengganti jika teks melebihi
 - semanticsLabel = Label semantik yang digunakan untuk aksesibilitas, membantu pengguna dengan berbagai kebutuhan aksesibilitas memahami konten teks dengan benar.
 
 **6. Kumpulkan laporan praktikum Anda berupa link repository GitHub melalui Assignment ini !**
->>>>>>> 0d104ed257a28244d6821ed12ebd8d2c38a3c537
