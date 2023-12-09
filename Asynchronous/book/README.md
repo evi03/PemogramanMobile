@@ -163,7 +163,7 @@ Gantilah isi code method calculate() seperti kode berikut, atau Anda dapat membu
 #### Langkah 6: Pindah ke onPressed()
 Ganti menjadi kode seperti berikut.
 
-![Uploading image.png…]()
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/be523df4-7ea8-49af-8f64-f98f7d58c35d)
 
 **Output**
 
