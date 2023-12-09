@@ -128,3 +128,46 @@ Lakukan comment kode sebelumnya, ubah isi kode onPressed() menjadi seperti berik
 #### Langkah 4: Run
 
 Akhirnya, run atau tekan F5 jika aplikasi belum running. Maka Anda akan melihat seperti gambar berikut, hasil angka 6 akan tampil setelah delay 9 detik.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/c11ba9a1-7443-431f-8dde-7f32e4b72bae)
+
+## Praktikum 3: Menggunakan Completer di Future
+
+#### Langkah 1: Buka main.dart
+Pastikan telah impor package async berikut.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/07c7e52f-fd20-4e66-9e9d-f83d41a0591e)
+
+#### Langkah 2: Tambahkan variabel dan method
+Tambahkan variabel late dan method di class _FuturePageState seperti ini.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/cf0018cd-c6fb-4d8e-b0ca-40080d6bb12f)
+
+#### Langkah 3: Ganti isi kode onPressed()
+Tambahkan kode berikut pada fungsi onPressed(). Kode sebelumnya bisa Anda comment.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/24a4f766-e4cd-4711-bfec-39d633fa770e)
+
+#### Langkah 4:
+Terakhir, run atau tekan F5 untuk melihat hasilnya jika memang belum running. Bisa juga lakukan hot restart jika aplikasi sudah running. Maka hasilnya akan seperti gambar berikut ini. Setelah 5 detik, maka angka 42 akan tampil.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/ff3487be-050e-4513-82de-84417f4e6906)
+
+> Maksud kode langkah 2 yaitu untuk menciptakan dan menyelesaikan Future secara manual dengan menggunakan Completer. Ini dapat berguna dalam situasi di mana perlu mengontrol sendiri kapan suatu Future selesai.
+
+#### Langkah 5: Ganti method calculate()
+Gantilah isi code method calculate() seperti kode berikut, atau Anda dapat membuat calculate2()
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/c90b3b5e-7477-40bb-9e6f-9049a6ea42b4)
+
+#### Langkah 6: Pindah ke onPressed()
+Ganti menjadi kode seperti berikut.
+
+![Uploading image.png…]()
+
+**Output**
+
+belum di ss
+
+> Kode langkah 2 lebih berfokus pada komunikasi dengan API eksternal (Google Books) untuk mendapatkan data.
+Kodelangkah 5 dan 6 menunjukkan penggunaan Completer untuk mengelola suatu Future yang melibatkan perhitungan asinkron yang lebih sederhana.
