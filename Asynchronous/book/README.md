@@ -101,7 +101,7 @@ Tambahkan kode pada 'onPressed' di 'ElevatedButton' seperti berikut.
 
 **Output**
 
-![image](https://github.com/evi03/PemogramanMobile/assets/95482289/b786d752-076c-483a-9d07-41307ae52027)
+https://github.com/evi03/PemogramanMobile/assets/95482289/f7a36c61-fef2-40c8-9538-7c2af3321dfa
 
 > **substring:** Ini adalah langkah untuk mengambil sebagian teks dari badan respons. digunakan untuk mengambil 450 karakter pertama dari badan respons. Hal ini dilakukan agar tidak menampilkan terlalu banyak teks. **CatchError**: Ini adalah bagian dari Future API yang menangkap kesalahan yang mungkin terjadi selama eksekusi Future. Jika ada kesalahan selama pemanggilan `getData`, blok kode dalam `.catchError` akan dijalankan. Pada contoh ini, jika terjadi kesalahan, variabel `result` akan diatur dengan pesan kesalahan 'An error occurred'. Jadi, secara keseluruhan, kode tersebut berfungsi untuk mengambil data dari permintaan HTTP setelah tombol "GO!" ditekan, kemudian memproses responsnya, dan menampilkan hasil atau menangani kesalahan jika ada.
 
@@ -122,3 +122,9 @@ Lalu tambahkan lagi method ini di bawah ketiga method sebelumnya.
 #### Langkah 3: Panggil count()
 
 Lakukan comment kode sebelumnya, ubah isi kode onPressed() menjadi seperti berikut.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/7f3a0d74-1602-4ad0-9130-3e52c68f993d)
+
+#### Langkah 4: Run
+
+Akhirnya, run atau tekan F5 jika aplikasi belum running. Maka Anda akan melihat seperti gambar berikut, hasil angka 6 akan tampil setelah delay 9 detik.
