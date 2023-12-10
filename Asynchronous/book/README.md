@@ -171,3 +171,9 @@ belum di ss
 
 > Kode langkah 2 lebih berfokus pada komunikasi dengan API eksternal (Google Books) untuk mendapatkan data.
 Kodelangkah 5 dan 6 menunjukkan penggunaan Completer untuk mengelola suatu Future yang melibatkan perhitungan asinkron yang lebih sederhana.
+
+# Praktikum 4: Memanggil Future secara paralel
+
+#### Langkah 1: Buka file main.dart
+Tambahkan method ini ke dalam class _FuturePageState
+
