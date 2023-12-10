@@ -165,10 +165,6 @@ Ganti menjadi kode seperti berikut.
 
 ![image](https://github.com/evi03/PemogramanMobile/assets/95482289/be523df4-7ea8-49af-8f64-f98f7d58c35d)
 
-**Output**
-
-belum di ss
-
 > Kode langkah 2 lebih berfokus pada komunikasi dengan API eksternal (Google Books) untuk mendapatkan data.
 Kodelangkah 5 dan 6 menunjukkan penggunaan Completer untuk mengelola suatu Future yang melibatkan perhitungan asinkron yang lebih sederhana.
 
@@ -176,4 +172,37 @@ Kodelangkah 5 dan 6 menunjukkan penggunaan Completer untuk mengelola suatu Futur
 
 #### Langkah 1: Buka file main.dart
 Tambahkan method ini ke dalam class _FuturePageState
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/738c124e-0e2e-4943-98de-7e461dbad4a1)
 
+#### Langkah 2: Edit onPressed()
+Anda bisa hapus atau comment kode sebelumnya, kemudian panggil method dari langkah 1 tersebut.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/ef67ce9a-e80e-4bd5-94ec-1db537b1bb1c)
+
+#### Langkah 3: Run
+Anda akan melihat hasilnya dalam 3 detik berupa angka 6 lebih cepat dibandingkan praktikum sebelumnya menunggu sampai 9 detik.
+
+* **Soal 7: Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W12: Soal 7"**
+
+#### Langkah 4: Ganti variabel futureGroup
+Anda dapat menggunakan FutureGroup dengan Future.wait seperti kode berikut.
+
+``` void returnFG() {
+    final Future = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+  }
+
+* **Soal 8: Jelaskan maksud perbedaan kode langkah 1 dan 4!**
+> Langkah 1 menggunakan FutureGroup untuk mengelola kumpulan Future. Sementara langkah 4 menggunakan Future.wait untuk menunggu sejumlah Future selesai sebelum melanjutkan.
+
+# Praktikum 5: Menangani Respon Error pada Async Code
+#### Langkah 1: Buka file main.dart
+Tambahkan method ini ke dalam class _FuturePageState
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/e289aa71-c333-49f8-8c61-37008fe04dc9)
+
+#### Langkah 2: ElevatedButton
+Ganti dengan kode berikut
