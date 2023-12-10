@@ -172,6 +172,7 @@ Kodelangkah 5 dan 6 menunjukkan penggunaan Completer untuk mengelola suatu Futur
 
 #### Langkah 1: Buka file main.dart
 Tambahkan method ini ke dalam class _FuturePageState
+
 ![image](https://github.com/evi03/PemogramanMobile/assets/95482289/738c124e-0e2e-4943-98de-7e461dbad4a1)
 
 #### Langkah 2: Edit onPressed()
@@ -194,6 +195,7 @@ Anda dapat menggunakan FutureGroup dengan Future.wait seperti kode berikut.
       returnThreeAsync(),
     ]);
   }
+```
 
 * **Soal 8: Jelaskan maksud perbedaan kode langkah 1 dan 4!**
 > Langkah 1 menggunakan FutureGroup untuk mengelola kumpulan Future. Sementara langkah 4 menggunakan Future.wait untuk menunggu sejumlah Future selesai sebelum melanjutkan.
