@@ -341,10 +341,316 @@ Tambah method ini dan set variabel position
 #### Langkah 4: Edit method build()
 Ketik kode berikut dan sesuaikan. Kode lama bisa Anda comment atau hapus.
 
-![Uploading image.png…]()
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/ca4f1771-81e9-4b5a-897f-9d1392006be9)
 
 * **Soal 13:  Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?**
->
+> Kedua praktikum tersebut tidak memiliki perbedaan pada antarmuka pengguna (UI). Keduanya menampilkan koordinat geolokasi dengan tata letak yang identik. Kesamaan ini disebabkan oleh pengambilan lokasi yang masih bersifat sinkron di dalam blok initState pada kedua praktikum. Waktu tampilan UI pada keduanya juga mengalami delay yang sama, yaitu 3 detik. Selain itu, tampilan UI dapat tampak seragam karena FutureBuilder secara otomatis mengelola pembaruan UI, bahkan tanpa perlu pemanggilan setState secara langsung.
 
 #### Langkah 5: Tambah handling error
 Tambahkan kode berikut untuk menangani ketika terjadi error. Kemudian hot restart.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/1ef012a9-057e-4576-86e0-97d2e2d61395)
+
+# Praktikum 8: Navigation route dengan Future Function
+
+#### Langkah 1: Buat file baru navigation_first.dart
+Buatlah file baru ini di project lib Anda.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/d220d8d0-da12-40fb-aef2-9f591d94ab8c)
+
+#### Langkah 2: Isi kode navigation_first.dart
+* **Soal 15**
+Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+Silakan ganti dengan warna tema favorit Anda.
+
+```import 'package:flutter/material.dart';
+
+class NavigationFirst extends StatefulWidget {
+  const NavigationFirst({super.key});
+
+  @override
+  State<NavigationFirst> createState() => _NavigationFirstState();
+}
+
+class _NavigationFirstState extends State<NavigationFirst> {
+  Color color = Colors.pink.shade700; //soal 15
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Color,
+      appBar: AppBar(actions: 
+      Title: const Text('Navigation First Screen Evi'), //soal 15
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Change Color'),
+          onPressed: () {
+            _NavigateAndGetColor(context);
+          }),
+        ),
+    );
+  }
+}
+```
+
+#### Langkah 3: Tambah method di class _NavigationFirstState
+Tambahkan method ini.
+```// Prak 8 langkah 3
+  Future _navigateAndGetColor(BuildContext context) async {
+   color = await Navigator.push(
+    context,
+        MaterialPageRoute(builder: (context) => const NavigationSecond()),
+      ) ?? 
+      Colors.blue;
+   setState(() {});
+   }
+}
+```
+
+#### Langkah 4: Buat file baru navigation_second.dart
+Buat file baru ini di project lib Anda. Silakan jika ingin mengelompokkan view menjadi satu folder dan sesuaikan impor yang dibutuhkan.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/1bd070ab-7fea-481e-b8c4-4efd98dfb317)
+
+#### Langkah 5: Buat class NavigationSecond dengan StatefulWidget
+```import 'package:flutter/material.dart';
+
+class NavigationSecond extends StatefulWidget {
+  const NavigationSecond({super.key});
+
+  @override
+  State<NavigationSecond> createState() => _NavigationSecondState();
+}
+class _NavigationSecondState extends State<NavigationSecond> {
+  @override
+  Widget build(BuildContext context) {
+    Color color;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Navigation Second Screen Evi"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Spacer(),
+            ElevatedButton(
+              child: const Text("Red"),
+                onPressed: () {
+                  color = Colors.red.shade700;
+                  Navigator.pop(context, color);
+                }),
+            ElevatedButton(
+              child: const Text("Green"),
+                onPressed: () {
+                  color = Colors.green.shade700;
+                  Navigator.pop(context, color);
+                }),  
+            ElevatedButton(
+              child: const Text("Blue"),
+                onPressed: () {
+                  color = Colors.blue.shade700;
+                  Navigator.pop(context, color);
+                }),  
+                const Spacer(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+#### Langkah 6: Edit main.dart
+Lakukan edit properti home.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/c62dd449-5485-41ea-9168-264b8be6b466)
+
+#### Langkah 8: Run
+Lakukan run, jika terjadi error silakan diperbaiki.
+
+* **Soal 16**
+> **Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian?** Ketika tombol button diklik, warnanya akan berubah sesuai dengan konfigurasi yang telah ditetapkan dalam ElevatedButton() di dalam kelas navigation_second.dart. Perubahan warna ini karena terdapat fungsi Navigation.pop() pada setiap tombol, dengan parameter berupa konteks dan warna yang telah ditentukan sebelumnya. Jadi, jika masing-masing tombol diklik, warna yang ditampilkan akan bervariasi sesuai dengan nilai variabel color yang telah diatur sebelumnya.
+
+https://github.com/evi03/PemogramanMobile/assets/95482289/cfd19184-77bc-42aa-bb88-76562d354202
+
+> Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!
+```import 'package:flutter/material.dart';
+
+class NavigationSecond extends StatefulWidget {
+  const NavigationSecond({super.key});
+
+  @override
+  State<NavigationSecond> createState() => _NavigationSecondState();
+}
+class _NavigationSecondState extends State<NavigationSecond> {
+  @override
+  Widget build(BuildContext context) {
+    Color color;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Navigation Second Screen Evi"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Spacer(),
+            ElevatedButton(
+              child: const Text("Pink"),
+                onPressed: () {
+                  color = Colors.pink.shade700;
+                  Navigator.pop(context, color);
+                }),
+            ElevatedButton(
+              child: const Text("Purple"),
+                onPressed: () {
+                  color = Colors.purple.shade700;
+                  Navigator.pop(context, color);
+                }),  
+            ElevatedButton(
+              child: const Text("Yellow"),
+                onPressed: () {
+                  color = Colors.yellow.shade700;
+                  Navigator.pop(context, color);
+                }),  
+                const Spacer(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+https://github.com/evi03/PemogramanMobile/assets/95482289/e63857a1-597a-45a7-b844-f2dc7f8d16e1
+
+# Praktikum 9: Memanfaatkan async/await dengan Widget Dialog
+
+#### Langkah 1: Buat file baru navigation_dialog.dart
+Buat file dart baru di folder lib project Anda.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/2db64762-1b33-4da8-8bfb-a783a13284d8)
+
+#### Langkah 2: Isi kode navigation_dialog.dart
+```import 'package:flutter/material.dart';
+
+class NavigationDialogScreen extends StatefulWidget {
+  const NavigationDialogScreen({super.key});
+
+  @override
+  State<NavigationDialogScreen> createState() => _NavigationDialogScreenState();
+}
+
+class _NavigationDialogScreenState extends State<NavigationDialogScreen> {
+  Color color = Colors.blue.shade700;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: color,
+      appBar: AppBar(
+        title: const Text('Navigation Dialog Screen Evi'),
+      ),
+      body: Center(
+        child:
+            ElevatedButton(child: const Text('Change Color'), onPressed: () {}),
+      ),
+    );
+  }
+}
+```
+
+#### Langkah 3: Tambah method async
+```//Prak 9 Langkah 3
+  _showColorDialog(BuildContext context) async {
+    await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: const Text('Very important question'),
+          content: const Text('Please choose a color'),
+          actions: <Widget>[
+            TextButton(
+                child: const Text('Red'),
+                onPressed: () {
+                  color = Colors.red.shade700;
+                  Navigator.pop(context, color);
+                }),
+            TextButton(
+                child: const Text('Green'),
+                onPressed: () {
+                  color = Colors.green.shade700;
+                  Navigator.pop(context, color);
+                }),
+            TextButton(
+                child: const Text('Blue'),
+                onPressed: () {
+                  color = Colors.blue.shade700;
+                  Navigator.pop(context, color);
+                }),
+          ],
+        );
+      },
+    );
+    setState(() {});
+  }
+}
+```
+
+#### Langkah 4: Panggil method di ElevatedButton
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/36094ded-6893-4e6d-a099-9593672b8c30)
+
+#### Langkah 5: Edit main.dart
+Ubah properti home
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/fcf922d6-c22d-4242-aed2-40ad78cd78c9)
+
+#### Langkah 6: Run
+Coba ganti warna background dengan widget dialog tersebut. Jika terjadi error, silakan diperbaiki. Jika berhasil, akan tampil seperti gambar berikut.
+
+![image](https://github.com/evi03/PemogramanMobile/assets/95482289/7adb5e6e-f7b1-4368-85f0-faddfef2885d)
+
+* **Soal 17**
+
+> **Cobalah klik setiap button, apa yang terjadi? Mengapa demikian?** Ketika tombol "changecolor" ditekan, muncul alert/dialog yang memungkinkan pengguna memilih warna untuk mengubah latar belakang. Proses ini terjadi karena nilai warna diperbarui dengan nilai yang dipilih dalam fungsi _showColorDialog, dan setelah itu, widget diperbarui dengan menggunakan setState. Hal ini mengakibatkan pembangunan kembali widget dan menampilkan perubahan warna pada layar.
+
+> **Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!**
+``` _showColorDialog(BuildContext context) async {
+    await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: const Text('Very important question'),
+          content: const Text('Please choose a color'),
+          actions: <Widget>[
+            TextButton(
+                child: const Text('yellow'),
+                onPressed: () {
+                  color = Colors.yellow.shade700;
+                  Navigator.pop(context, color);
+                }),
+            TextButton(
+                child: const Text('Green'),
+                onPressed: () {
+                  color = Colors.green.shade700;
+                  Navigator.pop(context, color);
+                }),
+            TextButton(
+                child: const Text('blue'),
+                onPressed: () {
+                  color = Colors.blue.shade700;
+                  Navigator.pop(context, color);
+                }),
+          ],
+        );
+      },
+    );
+    setState(() {});
+  }
+}
+```
+
+https://github.com/evi03/PemogramanMobile/assets/95482289/e57e7178-b452-4ce4-ae31-19c8ce184113
